@@ -85,7 +85,7 @@ sudo dnf install kernel-devel-$(uname -r) gcc make device-mapper
 3. **Просмотор созданных устройств**
 
     ```bash
-    sudo -al /dev/mapper/*
+    sudo ls -al /dev/mapper/*
     ```
 
 3. **Сбор статистики с устройства**
