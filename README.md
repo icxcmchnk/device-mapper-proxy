@@ -46,13 +46,13 @@ sudo dnf install kernel-devel-$(uname -r) gcc make device-mapper
 
 2. **Загрузка модуля**
 
-    * Загрузите модуль в ядро
+    Загрузите модуль в ядро
 
     ```bash
     sudo insmod dmp.ko
     ```
 
-    * Проверьте, что модуль был успешно загружен
+    Проверьте, что модуль был успешно загружен
 
     ```bash
     lsmod | grep dmp
@@ -121,16 +121,22 @@ sudo dnf install kernel-devel-$(uname -r) gcc make device-mapper
 
 2. **Выгрузка модуля**
 
-    * Выгрузите модуль
+    Выгрузите модуль
 
     ```bash
     sudo rmmod dmp
     ```
 
-    * Проверьте, что модуль успешно выгружен
+    Проверьте, что модуль успешно выгружен
 
     ```bash
     lsmod | grep dmp
+    ```
+
+3. Очистка после сборки:
+
+    ```bash
+    sudo make clean
     ```
 
 ---

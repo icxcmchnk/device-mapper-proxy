@@ -163,6 +163,8 @@ static int __init dmp_init(void)
 		goto err;
 	}
 
+	return ret;
+
 err:
 	dm_unregister_target(&dmp_target);
 	return ret;
