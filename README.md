@@ -15,6 +15,8 @@
 
 ## Зависимости
 
+Для сборки, установки и использования модуля требуются
+
 ### **Ubuntu / Debian**
 * `linux-headers-$(uname -r)` — заголовочные файлы текущего ядра
 * `build-essential` — базовые инструменты сборки
@@ -112,6 +114,63 @@ sudo dnf install kernel-devel-$(uname -r) gcc make device-mapper
 
     > `reqs` — количество запросов  
     > `avg size` — средний размер блока данных (округлен вверх)
+
+---
+
+## Тестирование
+
+Для того, чтобы протестировать модуль `dmp`, используйте скрипт `test_dmp.sh`, который создает тестовое устройство с целью `zero` (`/dev/mapper/zero_test`),затем создаёт устройство `/dev/mapper/dmp_test` с целью `dmp`, привязанное к `/dev/mapper/zero_test`, и выполняет операции чтения/записи
+
+* Убедитесь, что модуль загружен (`sudo insmod dmp.ko`)
+* Убедитесь в отсуствии устройств с именами `zero_test` и `dmp_test`
+
+```bash
+chmod +x test_dmp.sh
+sudo ./test_dmp.sh /dev/mapper/zero1
+```
+
+**Вывод**
+```txt
+Creating temporary zero Device Mapper device...
+Creating test Device Mapper device with dmp target...
+Test statistics before:
+read:
+        reqs: 47444
+        avg size: 7498
+write:
+        reqs: 8704
+        avg size: 4096
+total:
+        reqs: 56148
+        avg size: 6971
+
+Performing test read (1 MB)...
+Test statistics:
+read:
+        reqs: 47702
+        avg size: 7513
+write:
+        reqs: 8704
+        avg size: 4096
+total:
+        reqs: 56406
+        avg size: 6985
+
+Performing test write (1 MB)...
+Test statistics:
+read:
+        reqs: 48320
+        avg size: 7505
+write:
+        reqs: 8960
+        avg size: 4096
+total:
+        reqs: 57280
+        avg size: 6972
+Removing test device...
+Removing temporary zero device...
+Test completed successfully
+```
 
 ---
 
