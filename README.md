@@ -145,7 +145,7 @@ dmesg | grep "dmp:"
 
 Примеры сообщений
 
-```bash
+```txt
 dmp: Failed to allocate memory for dmp_data
 dmp: Invalid number of arguments
 ```
