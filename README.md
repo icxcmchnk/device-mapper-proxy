@@ -82,7 +82,7 @@ sudo dnf install kernel-devel-$(uname -r) gcc make device-mapper
 
     > `$size` - размер устройства `/dev/mapper/zero1`
 
-3. **Просмотор созданных устройств**
+3. **Просмотр созданных устройств**
 
     ```bash
     sudo ls -al /dev/mapper/*
