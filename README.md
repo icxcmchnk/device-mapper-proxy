@@ -82,6 +82,12 @@ sudo dnf install kernel-devel-$(uname -r) gcc make device-mapper
 
     > `$size` - размер устройства `/dev/mapper/zero1`
 
+3. **Просмотор созданных устройств**
+
+    ```bash
+    sudo -al /dev/mapper/*
+    ```
+
 3. **Сбор статистики с устройства**
 
     Статистика доступна через `sysfs`
